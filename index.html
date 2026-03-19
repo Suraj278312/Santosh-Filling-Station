@@ -58,6 +58,18 @@
         .gsap-hide {
             visibility: hidden;
         }
+
+        /* Mobile Floating Animation */
+        @keyframes mobileFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @media (max-width: 1024px) {
+            .float-on-mobile {
+                animation: mobileFloat 4s ease-in-out infinite;
+            }
+        }
     </style>
 </head>
 <body class="bg-lightbg text-gray-800 antialiased selection:bg-ioorange selection:text-white">
@@ -132,33 +144,36 @@
                 </div>
                 
                 <!-- Hero Highlight Card -->
-                <div class="hidden lg:block relative hero-image gsap-hide">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-ioblue to-ioorange rounded-3xl transform rotate-3 opacity-50 blur-lg"></div>
-                    <div class="relative glass-card rounded-3xl p-8 border border-white/10">
-                        <div class="flex justify-between items-start mb-6 border-b border-gray-100/20 pb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-ioblue">Live Fuel Rates</h3>
-                                <p class="text-sm text-gray-500">Updated Today</p>
+                <div class="relative hero-image gsap-hide w-full max-w-md mx-auto lg:max-w-none">
+                    <!-- Wrapper for mobile floating animation to avoid GSAP conflict -->
+                    <div class="float-on-mobile">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-ioblue to-ioorange rounded-3xl transform rotate-3 opacity-50 blur-lg"></div>
+                        <div class="relative glass-card rounded-3xl p-8 border border-white/10">
+                            <div class="flex justify-between items-start mb-6 border-b border-gray-100/20 pb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-ioblue">Live Fuel Rates</h3>
+                                    <p class="text-sm text-gray-500">Updated Today</p>
+                                </div>
+                                <i class="ph-fill ph-gas-pump text-4xl text-ioorange"></i>
                             </div>
-                            <i class="ph-fill ph-gas-pump text-4xl text-ioorange"></i>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-3 h-8 bg-ioorange rounded-full"></div>
-                                    <span class="font-bold text-gray-700 text-lg">Petrol</span>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-8 bg-ioorange rounded-full"></div>
+                                        <span class="font-bold text-gray-700 text-lg">Petrol</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-bold text-ioblue text-xl">₹105.45</span><span class="text-sm font-normal text-gray-500">/L</span>
+                                    </div>
                                 </div>
-                                <div class="text-right">
-                                    <span class="font-bold text-ioblue text-xl">₹105.45</span><span class="text-sm font-normal text-gray-500">/L</span>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-                                    <span class="font-bold text-gray-700 text-lg">Diesel</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="font-bold text-ioblue text-xl">₹92.02</span><span class="text-sm font-normal text-gray-500">/L</span>
+                                <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
+                                        <span class="font-bold text-gray-700 text-lg">Diesel</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-bold text-ioblue text-xl">₹92.02</span><span class="text-sm font-normal text-gray-500">/L</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +239,7 @@
                 <div class="order-2 lg:order-1 relative about-img-container gsap-hide">
                     <!-- Stylized Representation of the Station -->
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 aspect-video flex items-center justify-center border-4 border-white z-10">
-                        <img src="https://image2url.com/r2/default/images/1773918426977-c73abdbd-6b93-4df6-a761-c44a577b6a36.webp" alt="Gas Station" class="w-full h-full object-cover opacity-90">
+                        <img src="https://images.unsplash.com/photo-1621213600508-3721340b1716?q=80&w=2070&auto=format&fit=crop" alt="Gas Station" class="w-full h-full object-cover opacity-90">
                         <div class="absolute inset-0 bg-gradient-to-t from-ioblue/80 to-transparent flex items-end p-8">
                             <h3 class="text-white text-2xl font-bold">Modern Infrastructure</h3>
                         </div>
